@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peminjaman Barang - FT UNSIL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <nav id="navbar" class="bg-blue-700 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="LOGO-UNSIL-300x300.png" alt="Logo UNSIL" class="w-10 h-10 rounded-full bg-white p-1" />
+        <h1 class="text-xl font-bold">Peminjaman Barang</h1>
+      </div>
+
+      <ul class="flex space-x-4">
+        <ul class="flex space-x-4">
+          <li><button data-page="home" class="nav-button hover:underline">Beranda</button></li>
+          <li><button data-page="form" class="nav-button hover:underline">Peminjaman</button></li>
+          <li><button data-page="daftar" class="nav-button hover:underline">Daftar Barang</button></li>
+          <li><button data-page="login" class="nav-button hover:underline">Login</button></li>
+        </ul>        
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="p-8 flex flex-col items-center justify-center text-center min-h-screen bg-gray-100 hidden">
+    <img src="LOGO-UNSIL-300x300.png" alt="Logo" class="w-48 mb-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2 text-blue-800" style="font-family: 'Poppins', sans-serif; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+      Selamat Datang di Website
+    </h1>
+    <h2 class="text-xl md:text-2xl font-medium text-gray-700 mb-1" style="font-family: 'Poppins', sans-serif;">
+      Sistem Peminjaman Barang
+    </h2>
+    <p class="text-md md:text-lg text-gray-600" style="font-family: 'Poppins', sans-serif;">
+      Fakultas Teknik Universitas Siliwangi
+    </p>
+  </section>
+
+  <section id="form" class="p-6 flex justify-center hidden">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
+      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Formulir Peminjaman Barang</h2>
+      <form class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-10">
+        <input type="text" placeholder="Nama Lengkap" class="border p-2 rounded" />
+        <input type="text" placeholder="NIM" class="border p-2 rounded" />
+        <input type="text" placeholder="Nama Barang" class="border p-2 rounded" />
+        <input type="date" class="border p-2 rounded" />
+        <input type="date" class="border p-2 rounded" />
+        <textarea placeholder="Keperluan" class="border p-2 rounded col-span-2"></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 col-span-2">Ajukan</button>
+      </form>
+
+      <h2 class="text-xl font-semibold mb-4 text-blue-700">Cek Status Peminjaman</h2>
+      <div class="flex flex-col gap-4 md:flex-row md:items-center">
+        <input type="text" placeholder="Masukkan NIM" class="border p-2 rounded w-full md:flex-1" />
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Cari</button>
+      </div>
+      <p class="mt-2 text-gray-600 text-sm">Hasil status akan tampil di sini.</p>
+    </div>
+  </section>
+
+  <section id="daftar" class="p-6 flex justify-center hidden">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
+      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Daftar Barang Tersedia</h2>
+      <table class="w-full text-left border border-gray-300 rounded overflow-hidden">
+        <thead class="bg-blue-600 text-white">
+          <tr>
+            <th class="px-4 py-2">No</th>
+            <th class="px-4 py-2">Nama Barang</th>
+            <th class="px-4 py-2">Jumlah</th>
+            <th class="px-4 py-2">Kondisi</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white text-gray-800">
+          <tr class="border-t">
+            <td class="px-4 py-2">1</td>
+            <td class="px-4 py-2">Proyektor</td>
+            <td class="px-4 py-2">3</td>
+            <td class="px-4 py-2">Baik</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-4 py-2">2</td>
+            <td class="px-4 py-2">Laptop</td>
+            <td class="px-4 py-2">5</td>
+            <td class="px-4 py-2">Baik</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-4 py-2">3</td>
+            <td class="px-4 py-2">Kabel Roll</td>
+            <td class="px-4 py-2">7</td>
+            <td class="px-4 py-2">Cukup</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-4 py-2">4</td>
+            <td class="px-4 py-2">Speaker Portable</td>
+            <td class="px-4 py-2">2</td>
+            <td class="px-4 py-2">Baik</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-4 py-2">5</td>
+            <td class="px-4 py-2">Meja Lipat</td>
+            <td class="px-4 py-2">10</td>
+            <td class="px-4 py-2">Baik</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-4 py-2">6</td>
+            <td class="px-4 py-2">Kursi Tambahan</td>
+            <td class="px-4 py-2">20</td>
+            <td class="px-4 py-2">Baik</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="status" class="p-6 hidden">
+    <h2 class="text-xl font-semibold mb-4">Cek Status Peminjaman</h2>
+    <input type="text" placeholder="Masukkan NIM" class="border p-2 rounded w-full mb-4" />
+    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Cari</button>
+    <p class="mt-2 text-gray-600 text-sm">Hasil status akan tampil di sini.</p>
+  </section>
+
+  <section id="login" class="p-6 flex justify-center">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
+      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">
+        Login Sistem Peminjaman Barang
+      </h2>
+      <form id="login-form" class="grid grid-cols-1 gap-4">
+        <input
+          type="text"
+          placeholder="Email"
+          class="border p-2 rounded"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          class="border p-2 rounded"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Login
+        </button>
+      </form>
+      <p class="mt-4 text-center text-gray-600">
+        Belum punya akun?
+        <a
+          href="#"
+          class="text-blue-600 hover:underline"
+          onclick="showPage('register')"
+          >Daftar di sini</a
+        >
+      </p>
+    </div>
+  </section>
+
+  <section id="register" class="p-6 flex justify-center hidden">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
+      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">
+        Daftar Akun
+      </h2>
+      <form id="register-form" class="grid grid-cols-1 gap-4">
+        <input
+          type="text"
+          placeholder="Email"
+          class="border p-2 rounded"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          class="border p-2 rounded"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Konfirmasi Password"
+          class="border p-2 rounded"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Daftar
+        </button>
+      </form>
+      <p class="mt-4 text-center text-gray-600">
+        Sudah punya akun?
+        <a
+          href="#"
+          class="text-blue-600 hover:underline"
+          onclick="showPage('login')"
+          >Login di sini</a
+        >
+      </p>
+    </div>
+  </section>
+
+  <section id="admin" class="p-6 hidden flex justify-center">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
+      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Manajemen Barang</h2>
+  
+      <div class="mb-4 text-right">
+        <button class="admin-button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" style="display: none;">
+          Tambah Barang
+        </button>
+      </div>
+  
+      <div class="mb-6 p-4 border rounded-md">
+        <h3 class="text-lg font-semibold mb-2">Tambah Barang Baru</h3>
+        <form id="tambah-barang-form" class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div>
+            <label for="namaBarang" class="block text-gray-700 text-sm font-bold mb-2">Nama Barang</label>
+            <input type="text" id="namaBarang" placeholder="Nama Barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+          </div>
+          <div>
+            <label for="jumlah" class="block text-gray-700 text-sm font-bold mb-2">Jumlah</label>
+            <input type="number" id="jumlah" placeholder="Jumlah" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+          </div>
+          <div>
+            <label for="kondisi" class="block text-gray-700 text-sm font-bold mb-2">Kondisi</label>
+            <input type="text" id="kondisi" placeholder="Kondisi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+          </div>
+          <div class="md:col-span-3">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Tambah</button>
+          </div>
+        </form>
+      </div>
+  
+      <div class="overflow-x-auto">
+        <h3 class="text-lg font-semibold mb-2">Daftar Barang</h3>
+        <table id="daftar-barang-admin" class="min-w-full bg-white rounded-lg shadow-md">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="py-2 px-4 border-b font-semibold text-gray-700">Nama Barang</th>
+              <th class="py-2 px-4 border-b font-semibold text-gray-700">Jumlah Total</th>
+              <th class="py-2 px-4 border-b font-semibold text-gray-700">Jumlah Tersedia</th>
+              <th class="py-2 px-4 border-b font-semibold text-gray-700">Kondisi</th>
+              <th class="py-2 px-4 border-b font-semibold text-gray-700">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="admin-create-user" class="hidden p-6 bg-white rounded-md shadow-md">
+    <h2 class="text-2xl font-semibold mb-4">Buat Pengguna Admin Baru</h2>
+    <form id="form-create-admin" class="grid grid-cols-1 gap-4">
+      <input type="email" name="email" placeholder="Email" class="border p-2 rounded" required>
+      <input type="password" name="password" placeholder="Password" class="border p-2 rounded" required>
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Buat Admin</button>
+    </form>
+    <div id="admin-user-message" class="mt-4 text-sm"></div>
+  
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Daftar Barang</h2>
+    <table id="daftar-barang-admin" class="min-w-full bg-white border border-gray-300 shadow-md rounded-md">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b">Nama Barang</th>
+          <th class="py-2 px-4 border-b">Jumlah</th>
+          <th class="py-2 px-4 border-b">Kondisi</th>
+          <th class="py-2 px-4 border-b">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        </tbody>
+    </table>
+  </section>
+
+  <!-- Script untuk Navigasi -->
+  <script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+   //  Fungsi Navigasi
+   function showPage(pageId) {
+    const pages = ['home', 'form', 'daftar', 'status', 'login', 'register'];
+    pages.forEach(id => {
+      const page = document.getElementById(id);
+      if (page) {
+        page.classList.add('hidden');
+      }
+    });
+
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+      targetPage.classList.remove('hidden');
+    }
+
+    const navbar = document.getElementById('navbar');
+    if (pageId === 'login' || pageId === 'register') {
+      navbar.style.display = 'none';
+    } else {
+      navbar.style.display = 'block';
+    }
+
+    setupAdminVisibility(pageId); // Panggil setupAdminVisibility dengan pageId
+  }
+
+   showPage('login'); // Tampilkan halaman login saat awal
+
+   
+
+   // Fungsi untuk Menampilkan/Menyembunyikan Bagian Admin
+   function setupAdminVisibility(pageId) {
+    const loggedInUserRole = localStorage.getItem('userRole');
+    const adminControlButtons = document.querySelectorAll('.admin-button');
+    const manajemenBarangSection = document.getElementById('admin');
+
+    if (loggedInUserRole === 'admin' && pageId === 'daftar') {
+      adminControlButtons.forEach(button => button.style.display = 'block');
+      if (manajemenBarangSection) {
+        manajemenBarangSection.classList.remove('hidden');
+      }
+      fetchDaftarBarangAdmin(); // Muat data barang untuk admin
+    } else {
+      adminControlButtons.forEach(button => button.style.display = 'none');
+      if (manajemenBarangSection) {
+        manajemenBarangSection.classList.add('hidden');
+      }
+    }
+  }
+
+  setupAdminVisibility('login'); // Panggil saat halaman dimuat
+
+   // Event Listener untuk Tombol Navigasi
+   const navButtons = document.querySelectorAll('.nav-button');
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const pageId = button.dataset.page;
+      showPage(pageId);
+    });
+  });
+
+  
+ // Formulir Peminjaman
+const formPeminjaman = document.querySelector('#form form');
+
+if (formPeminjaman) {
+  formPeminjaman.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const namaLengkap = formPeminjaman.querySelector('input[placeholder="Nama Lengkap"]').value;
+    const nim = formPeminjaman.querySelector('input[placeholder="NIM"]').value;
+    const namaBarang = formPeminjaman.querySelector('input[placeholder="Nama Barang"]').value;
+    const tanggalPinjam = formPeminjaman.querySelectorAll('input[type="date"]')[0].value;
+    const tanggalKembali = formPeminjaman.querySelectorAll('input[type="date"]')[1].value;
+    const keperluan = formPeminjaman.querySelector('textarea[placeholder="Keperluan"]').value;
+
+    // Validasi Client-Side (Contoh sederhana)
+    if (!namaLengkap || !nim || !namaBarang || !tanggalPinjam || !tanggalKembali || !keperluan) {
+      alert('Semua field harus diisi!');
+      return;
+    }
+
+    const data = {
+      namaLengkap,
+      nim,
+      namaBarang,
+      tanggalPinjam,
+      tanggalKembali,
+      keperluan,
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/peminjaman', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert('Peminjaman berhasil diajukan!');
+        formPeminjaman.reset();
+        showPage('home');
+      } else {
+        console.error('Server error:', result); // Log error dari server
+        alert(`Gagal mengajukan: ${result.message || 'Terjadi kesalahan server'}`);
+      }
+    } catch (error) {
+      console.error('Fetch error:', error); // Log error saat fetch
+      alert('Terjadi kesalahan saat mengajukan peminjaman.');
+    }
+  });
+}
+   // Login
+   const loginForm = document.querySelector('#login form');
+
+   if (loginForm) {
+     loginForm.addEventListener('submit', async (e) => {
+       e.preventDefault();
+
+       const email = loginForm.querySelector('input[placeholder="Email"]').value;
+       const password = loginForm.querySelector('input[placeholder="Password"]').value;
+
+       const data = { email, password };
+
+       try {
+         const response = await fetch('http://localhost:5000/user/login', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(data),
+         });
+
+         const result = await response.json();
+
+         if (response.ok) {
+           localStorage.setItem('token', result.token);
+           localStorage.setItem('userRole', result.role);
+           showPage('home');
+           setupAdminVisibility('home'); // Tampilkan halaman home setelah login
+         } else {
+           alert(`Login gagal: ${result.message}`);
+         }
+       } catch (error) {
+         console.error('Error:', error);
+         alert('Terjadi kesalahan saat login.');
+       }
+     });
+   }
+
+   // Register
+   const registerForm = document.querySelector('#register-form');
+
+   if (registerForm) {
+     registerForm.addEventListener('submit', async (e) => {
+       e.preventDefault();
+
+       const email = registerForm.querySelector('input[placeholder="Email"]').value;
+       const password = registerForm.querySelector('input[placeholder="Password"]').value;
+       const confirmPassword = registerForm.querySelector('input[placeholder="Konfirmasi Password"]').value;
+
+       if (password !== confirmPassword) {
+         alert('Password dan Konfirmasi Password tidak cocok.');
+         return;
+       }
+
+       const data = { email, password };
+
+       try {
+         const response = await fetch('http://localhost:5000/user/register', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(data),
+         });
+
+         const result = await response.json();
+
+         if (response.ok) {
+           alert('Pendaftaran berhasil!');
+           registerForm.reset();
+           showPage('login');
+         } else {
+           alert(`Pendaftaran gagal: ${result.message}`);
+         }
+       } catch (error) {
+         console.error('Error:', error);
+         alert('Terjadi kesalahan saat mendaftar.');
+       }
+     });
+   }
+
+   // Logout
+   const logoutButton = document.getElementById('logout-button');
+   if (logoutButton) {
+     logoutButton.addEventListener('click', () => {
+       localStorage.removeItem('token');
+       localStorage.removeItem('userRole');
+       showPage('login');
+     });
+   }
+
+   // Fetch Daftar Barang (Umum)
+   const daftarTableBody = document.querySelector('#daftar table tbody');
+
+   async function fetchDaftarBarang() {
+     try {
+       const response = await fetch('http://localhost:5000/barang');
+
+       if (!response.ok) {
+         throw new Error(`HTTP error! Status: ${response.status}`);
+       }
+
+       const data = await response.json();
+
+       daftarTableBody.innerHTML = '';
+
+       data.forEach((barang, index) => {
+         const row = document.createElement('tr');
+         row.classList.add('border-t');
+         row.innerHTML = `
+           <td class="px-4 py-2"><span class="math-inline">\{index \+ 1\}</td\>
+<td class\="px\-4 py\-2"\></span>{barang.namaBarang}</td>
+           <td class="px-4 py-2"><span class="math-inline">\{barang\.jumlah\}</td\>
+<td class\="px\-4 py\-2"\></span>{barang.kondisi}</td>
+         `;
+         daftarTableBody.appendChild(row);
+       });
+
+     } catch (error) {
+       console.error('Gagal mengambil data barang:', error);
+       daftarTableBody.innerHTML = '<tr><td colspan="4" class="text-center">Gagal memuat data barang.</td></tr>';
+     }
+   }
+
+   fetchDaftarBarang();
+
+   // Fetch Daftar Barang (Admin)
+   async function fetchDaftarBarangAdmin() {
+     try {
+       const response = await fetch('http://localhost:5000/barang', {
+         headers: {
+           'Authorization': `Bearer ${localStorage.getItem('token')}`
+         }
+       });
+       const data = await response.json();
+
+       if (!response.ok) {
+         throw new Error(`HTTP error! Status: ${response.status}`);
+       }
+
+       const daftarTableBody = document.querySelector('#daftar-barang-admin tbody');
+       if (daftarTableBody) {
+         daftarTableBody.innerHTML = '';
+
+         data.forEach(barang => {
+           const row = document.createElement('tr');
+           row.innerHTML = `
+             <td class="py-2 px-4 border-b"><span class="math-inline">\{barang\.namaBarang\}</td\>
+<td class\="py\-2 px\-4 border\-b"\></span>{barang.jumlah}</td>
+             <td class="py-2 px-4 border-b">${barang.kondisi}</td>
+             <td class="py-2 px-4 border-b">
+               <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Edit</button>
+               <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Hapus</button>
+             </td>
+           `;
+           daftarTableBody.appendChild(row);
+         });
+       }
+
+     } catch (error) {
+       console.error('Gagal mengambil data barang:', error);
+       const daftarTableBody = document.querySelector('#daftar-barang-admin tbody');
+       if (daftarTableBody) {
+         daftarTableBody.innerHTML = '<tr><td colspan="4" class="text-center">Gagal memuat data barang.</td></tr>';
+       }
+     }
+   }
+
+   // Form Tambah Admin
+   const formCreateAdmin = document.getElementById('form-create-admin');
+   const adminUserMessage = document.getElementById('admin-user-message');
+
+   if (formCreateAdmin) {
+     formCreateAdmin.addEventListener('submit', async (e) => {
+       e.preventDefault();
+
+       const email = formCreateAdmin.querySelector('input[name="email"]').value;
+       const password = formCreateAdmin.querySelector('input[name="password"]').value;
+       const token = localStorage.getItem('token');
+
+       try {
+         const response = await fetch('http://localhost:5000/user/admin/users', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+             'Authorization': `Bearer ${token}`,
+           },
+           body: JSON.stringify({ email, password }),
+         });
+
+         const result = await response.json();
+
+         if (response.ok) {
+           adminUserMessage.textContent = 'Admin berhasil dibuat!';
+           adminUserMessage.className = 'mt-4 text-sm text-green-500';
+           formCreateAdmin.reset();
+         } else {
+           adminUserMessage.textContent = `Gagal membuat admin: ${result.message}`;
+           adminUserMessage.className = 'mt-4 text-sm text-red-500';
+         }
+       } catch (error) {
+         console.error('Error:', error);
+         adminUserMessage.textContent = 'Terjadi kesalahan saat membuat admin.';
+         adminUserMessage.className = 'mt-4 text-sm text-red-500';
+       }
+     });
+   }
+ });
+
+</script>
+
+</body>
+</html>
