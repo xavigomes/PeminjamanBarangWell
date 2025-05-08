@@ -23,7 +23,7 @@ async function createAdmin() {
       return;
     }
 
-    const adminEmail = 'yusep@example.com'; // Ganti dengan email admin yang Anda inginkan
+    const adminEmail = 'admin@example.com'; // Ganti dengan email admin yang Anda inginkan
     const adminPassword = 'admin123'; // Ganti dengan password yang kuat!
 
     const hashedPassword = await bcrypt.hash(adminPassword, 10);

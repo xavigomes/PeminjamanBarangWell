@@ -45,13 +45,13 @@
   <section id="form" class="p-6 flex justify-center hidden">
     <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
       <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Formulir Peminjaman Barang</h2>
-      <form class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-10">
-        <input type="text" placeholder="Nama Lengkap" class="border p-2 rounded" />
-        <input type="text" placeholder="NIM" class="border p-2 rounded" />
-        <input type="text" placeholder="Nama Barang" class="border p-2 rounded" />
-        <input type="date" class="border p-2 rounded" />
-        <input type="date" class="border p-2 rounded" />
-        <textarea placeholder="Keperluan" class="border p-2 rounded col-span-2"></textarea>
+      <form id ="form-peminjaman" class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-10">
+        <input type="text" id="namaLengkap"placeholder="Nama Lengkap" class="border p-2 rounded" />
+        <input type="text" id="nim" placeholder="NIM" class="border p-2 rounded" />
+        <input type="text" id="namaBarang" placeholder="Nama Barang" class="border p-2 rounded" />
+        <input type="date" id="tanggalPinjam" class="border p-2 rounded" />
+        <input type="date" id="tanggalKembali" class="border p-2 rounded" />
+        <textarea placeholder="Keperluan" id="keperluan" class="border p-2 rounded col-span-2"></textarea>
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 col-span-2">Ajukan</button>
       </form>
 
@@ -346,60 +346,73 @@
 
   
  // Formulir Peminjaman
-const formPeminjaman = document.querySelector('#form form');
+const formPeminjaman = document.getElementById('form-peminjaman');
 
 if (formPeminjaman) {
-  formPeminjaman.addEventListener('submit', async (e) => {
-    e.preventDefault();
+ formPeminjaman.addEventListener('submit', async (e) => {
+  console.log('Event submit terpicu!');
+  e.preventDefault();
+  console.log('Formulir peminjaman di-submit!');
 
-    const namaLengkap = formPeminjaman.querySelector('input[placeholder="Nama Lengkap"]').value;
-    const nim = formPeminjaman.querySelector('input[placeholder="NIM"]').value;
-    const namaBarang = formPeminjaman.querySelector('input[placeholder="Nama Barang"]').value;
-    const tanggalPinjam = formPeminjaman.querySelectorAll('input[type="date"]')[0].value;
-    const tanggalKembali = formPeminjaman.querySelectorAll('input[type="date"]')[1].value;
-    const keperluan = formPeminjaman.querySelector('textarea[placeholder="Keperluan"]').value;
+  const namaLengkap = document.getElementById('namaLengkap').value; 
+  const nim = document.getElementById('nim').value;
+  const namaBarang = document.getElementById('namaBarang').value;
+  const tanggalPinjam = document.getElementById('tanggalPinjam').value;
+  const tanggalKembali = document.getElementById('tanggalKembali').value;
+  const keperluan = document.getElementById('keperluan').value;
 
-    // Validasi Client-Side (Contoh sederhana)
-    if (!namaLengkap || !nim || !namaBarang || !tanggalPinjam || !tanggalKembali || !keperluan) {
-      alert('Semua field harus diisi!');
-      return;
-    }
+console.log('namaLengkap:', namaLengkap);
+console.log('nim:', nim);
+console.log('namaBarang:', namaBarang);
+console.log('tanggalPinjam:', tanggalPinjam);
+console.log('tanggalKembali:', tanggalKembali);
+console.log('keperluan:', keperluan);
 
-    const data = {
-      namaLengkap,
-      nim,
-      namaBarang,
-      tanggalPinjam,
-      tanggalKembali,
-      keperluan,
-    };
+  // Validasi Client-Side
+  if (!namaLengkap || !nim || !namaBarang || !tanggalPinjam || !tanggalKembali || !keperluan) {
+   alert('Semua field harus diisi!');
+   return; // Hentikan proses jika ada field yang kosong
+  }
 
-    try {
-      const response = await fetch('http://localhost:5000/peminjaman', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+  const data = {
+   namaLengkap: namaLengkap,
+   nim: nim,
+   namaBarang: namaBarang,
+   tanggalPinjam: tanggalPinjam,
+   tanggalKembali: tanggalKembali,
+   keperluan: keperluan,
+  };
 
-      const result = await response.json();
+  console.log('Sebelum fetch...');
 
-      if (response.ok) {
-        alert('Peminjaman berhasil diajukan!');
-        formPeminjaman.reset();
-        showPage('home');
-      } else {
-        console.error('Server error:', result); // Log error dari server
-        alert(`Gagal mengajukan: ${result.message || 'Terjadi kesalahan server'}`);
-      }
-    } catch (error) {
-      console.error('Fetch error:', error); // Log error saat fetch
-      alert('Terjadi kesalahan saat mengajukan peminjaman.');
-    }
+try {
+  const response = await fetch('http://localhost:5000/peminjaman', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
   });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  const result = await response.json();
+  console.log('Hasil dari server:', result);
+
+  alert('Peminjaman berhasil diajukan!');
+  formPeminjaman.reset();
+  showPage('home');
+
+} catch (error) {
+  console.error('Error:', error);
+  alert('Terjadi kesalahan saat mengajukan peminjaman.');
+} 
+});
 }
-   // Login
+
+// Login
    const loginForm = document.querySelector('#login form');
 
    if (loginForm) {
