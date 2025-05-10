@@ -1,4 +1,4 @@
-const Barang = require('C:/Users/Lenovo/Downloads/peminjaman barang/routes/barang.js');
+const Barang = require('../models/barang');
 
 // Mendapatkan semua barang
 const getAllBarang = async (req, res) => {
@@ -7,6 +7,7 @@ const getAllBarang = async (req, res) => {
     res.json(barang);
   } catch (error) {
     res.status(500).json({ message: error.message });
+    console.error("SERVER: Detail error:", error.stack);
   }
 };
 

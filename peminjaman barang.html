@@ -23,7 +23,7 @@
           <li><button data-page="home" class="nav-button hover:underline">Beranda</button></li>
           <li><button data-page="form" class="nav-button hover:underline">Peminjaman</button></li>
           <li><button data-page="daftar" class="nav-button hover:underline">Daftar Barang</button></li>
-          <li><button data-page="login" class="nav-button hover:underline">Login</button></li>
+          <li><button data-page="login" class="nav-button hover:underline">Logout</button></li>
         </ul>        
       </ul>
     </div>
@@ -64,60 +64,22 @@
     </div>
   </section>
 
-  <section id="daftar" class="p-6 flex justify-center hidden">
-    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
-      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Daftar Barang Tersedia</h2>
-      <table class="w-full text-left border border-gray-300 rounded overflow-hidden">
-        <thead class="bg-blue-600 text-white">
-          <tr>
-            <th class="px-4 py-2">No</th>
-            <th class="px-4 py-2">Nama Barang</th>
-            <th class="px-4 py-2">Jumlah</th>
-            <th class="px-4 py-2">Kondisi</th>
-          </tr>
-        </thead>
-        <tbody class="bg-white text-gray-800">
-          <tr class="border-t">
-            <td class="px-4 py-2">1</td>
-            <td class="px-4 py-2">Proyektor</td>
-            <td class="px-4 py-2">3</td>
-            <td class="px-4 py-2">Baik</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-4 py-2">2</td>
-            <td class="px-4 py-2">Laptop</td>
-            <td class="px-4 py-2">5</td>
-            <td class="px-4 py-2">Baik</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-4 py-2">3</td>
-            <td class="px-4 py-2">Kabel Roll</td>
-            <td class="px-4 py-2">7</td>
-            <td class="px-4 py-2">Cukup</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-4 py-2">4</td>
-            <td class="px-4 py-2">Speaker Portable</td>
-            <td class="px-4 py-2">2</td>
-            <td class="px-4 py-2">Baik</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-4 py-2">5</td>
-            <td class="px-4 py-2">Meja Lipat</td>
-            <td class="px-4 py-2">10</td>
-            <td class="px-4 py-2">Baik</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-4 py-2">6</td>
-            <td class="px-4 py-2">Kursi Tambahan</td>
-            <td class="px-4 py-2">20</td>
-            <td class="px-4 py-2">Baik</td>
-          </tr>
+<section id="daftar" class="p-6 flex justify-center hidden">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
+    <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Daftar Barang Tersedia</h2>
+    <table class="w-full text-left border border-gray-300 rounded overflow-hidden">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="px-4 py-2">No</th>
+          <th class="px-4 py-2">Nama Barang</th>
+          <th class="px-4 py-2">Jumlah Tersedia</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white text-gray-800">
         </tbody>
-      </table>
-    </div>
-  </section>
-
+    </table>
+  </div>
+</section>
   <section id="status" class="p-6 hidden">
     <h2 class="text-xl font-semibold mb-4">Cek Status Peminjaman</h2>
     <input type="text" placeholder="Masukkan NIM" class="border p-2 rounded w-full mb-4" />
@@ -155,7 +117,7 @@
         <a
           href="#"
           class="text-blue-600 hover:underline"
-          onclick="showPage('register')"
+          onclick="console.log('Tombol Daftar Diklik'); showPage('register')"
           >Daftar di sini</a
         >
       </p>
@@ -205,56 +167,49 @@
     </div>
   </section>
 
-  <section id="admin" class="p-6 hidden flex justify-center">
-    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
-      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Manajemen Barang</h2>
-  
-      <div class="mb-4 text-right">
-        <button class="admin-button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" style="display: none;">
-          Tambah Barang
-        </button>
-      </div>
-  
-      <div class="mb-6 p-4 border rounded-md">
-        <h3 class="text-lg font-semibold mb-2">Tambah Barang Baru</h3>
-        <form id="tambah-barang-form" class="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div>
-            <label for="namaBarang" class="block text-gray-700 text-sm font-bold mb-2">Nama Barang</label>
-            <input type="text" id="namaBarang" placeholder="Nama Barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-          </div>
-          <div>
-            <label for="jumlah" class="block text-gray-700 text-sm font-bold mb-2">Jumlah</label>
-            <input type="number" id="jumlah" placeholder="Jumlah" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-          </div>
-          <div>
-            <label for="kondisi" class="block text-gray-700 text-sm font-bold mb-2">Kondisi</label>
-            <input type="text" id="kondisi" placeholder="Kondisi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-          </div>
-          <div class="md:col-span-3">
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Tambah</button>
-          </div>
-        </form>
-      </div>
-  
-      <div class="overflow-x-auto">
-        <h3 class="text-lg font-semibold mb-2">Daftar Barang</h3>
-        <table id="daftar-barang-admin" class="min-w-full bg-white rounded-lg shadow-md">
-          <thead>
-            <tr class="bg-gray-200">
-              <th class="py-2 px-4 border-b font-semibold text-gray-700">Nama Barang</th>
-              <th class="py-2 px-4 border-b font-semibold text-gray-700">Jumlah Total</th>
-              <th class="py-2 px-4 border-b font-semibold text-gray-700">Jumlah Tersedia</th>
-              <th class="py-2 px-4 border-b font-semibold text-gray-700">Kondisi</th>
-              <th class="py-2 px-4 border-b font-semibold text-gray-700">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+<section id="admin" class="p-6 hidden flex justify-center">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-3xl">
+    <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Manajemen Barang</h2>
 
+    <div class="mb-4 text-right">
+      <button class="admin-button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" style="display: none;">
+        Tambah Barang
+      </button>
+    </div>
+
+    <div class="mb-6 p-4 border rounded-md">
+      <h3 class="text-lg font-semibold mb-2">Tambah Barang Baru</h3>
+      <form id="tambah-barang-form" class="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div>
+          <label for="barangNama" class="block text-gray-700 text-sm font-bold mb-2">Nama Barang</label>
+          <input type="text" id="barangNama" placeholder="Nama Barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+        </div>
+        <div>
+          <label for="jumlah" class="block text-gray-700 text-sm font-bold mb-2">Jumlah</label>
+          <input type="number" id="jumlah" placeholder="Jumlah" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+        </div>
+        <div class="md:col-span-3">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Tambah</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="overflow-x-auto">
+      <h3 class="text-lg font-semibold mb-2">Daftar Barang</h3>
+      <table id="daftar-barang-admin" class="min-w-full bg-white rounded-lg shadow-md">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="py-2 px-4 border-b font-semibold text-gray-700">Nama Barang</th>
+            <th class="py-2 px-4 border-b font-semibold text-gray-700">Jumlah Total</th>
+            <th class="py-2 px-4 border-b font-semibold text-gray-700">Jumlah Tersedia</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
   
   <section id="admin-create-user" class="hidden p-6 bg-white rounded-md shadow-md">
     <h2 class="text-2xl font-semibold mb-4">Buat Pengguna Admin Baru</h2>
@@ -280,348 +235,388 @@
     </table>
   </section>
 
+  
+  <section id="admin-create-user" class="hidden p-6 bg-white rounded-md shadow-md">
+    <h2 class="text-2xl font-semibold mb-4">Buat Pengguna Admin Baru</h2>
+    <form id="form-create-admin" class="grid grid-cols-1 gap-4">
+      <input type="email" name="email" placeholder="Email" class="border p-2 rounded" required>
+      <input type="password" name="password" placeholder="Password" class="border p-2 rounded" required>
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Buat Admin</button>
+    </form>
+    <div id="admin-user-message" class="mt-4 text-sm"></div>
+  
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Daftar Barang</h2>
+    <table id="daftar-barang-admin" class="min-w-full bg-white border border-gray-300 shadow-md rounded-md">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b">Nama Barang</th>
+          <th class="py-2 px-4 border-b">Jumlah</th>
+        </tr>
+      </thead>
+      <tbody>
+        </tbody>
+    </table>
+  </section>
+
   <!-- Script untuk Navigasi -->
   <script>
+    
+document.addEventListener('DOMContentLoaded', () => {
 
-  document.addEventListener('DOMContentLoaded', () => {
-   //  Fungsi Navigasi
-   function showPage(pageId) {
-    const pages = ['home', 'form', 'daftar', 'status', 'login', 'register'];
-    pages.forEach(id => {
-      const page = document.getElementById(id);
-      if (page) {
-        page.classList.add('hidden');
-      }
+    //  Fungsi Navigasi
+    function showPage(pageId) {
+        const pages = ['home', 'form', 'daftar', 'status', 'login', 'register', 'admin', 'admin-create-user']; // Tambahkan halaman admin jika ada
+        pages.forEach(id => {
+            const page = document.getElementById(id);
+            if (page) {
+                page.classList.add('hidden');
+            }
+        });
+
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.remove('hidden');
+        }
+
+        const navbar = document.getElementById('navbar');
+        if (pageId === 'login' || pageId === 'register') {
+            navbar.style.display = 'none';
+        } else {
+            navbar.style.display = 'block';
+        }
+
+        setupAdminVisibility(pageId);
+    }
+
+    showPage('login');
+
+    // Fungsi untuk Menampilkan/Menyembunyikan Bagian Admin
+    function setupAdminVisibility(pageId) {
+        const loggedInUserRole = localStorage.getItem('userRole');
+        const adminControlButtons = document.querySelectorAll('.admin-button');
+        const manajemenBarangSection = document.getElementById('admin');
+
+        if (loggedInUserRole === 'admin' && pageId === 'daftar') {
+            adminControlButtons.forEach(button => button.style.display = 'block');
+            if (manajemenBarangSection) {
+                manajemenBarangSection.classList.remove('hidden');
+            }
+            fetchDaftarBarangAdmin(); // Muat data barang untuk admin
+        } else {
+            adminControlButtons.forEach(button => button.style.display = 'none');
+            if (manajemenBarangSection) {
+                manajemenBarangSection.classList.add('hidden');
+            }
+        }
+    }
+
+    setupAdminVisibility('login'); // Panggil saat halaman dimuat
+
+    // Event Listener untuk Tombol Navigasi
+    const navButtons = document.querySelectorAll('.nav-button');
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const pageId = button.dataset.page;
+            showPage(pageId);
+        });
     });
 
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-      targetPage.classList.remove('hidden');
+    // Event Listener untuk Pindah ke Halaman Login dari Register
+    const goToLoginLink = document.querySelector('#register a');
+    if (goToLoginLink) {
+        goToLoginLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah tautan melakukan navigasi sebenarnya
+            showPage('login');
+        });
     }
 
-    const navbar = document.getElementById('navbar');
-    if (pageId === 'login' || pageId === 'register') {
-      navbar.style.display = 'none';
-    } else {
-      navbar.style.display = 'block';
+    // Event Listener untuk Pindah ke Halaman Register dari Login
+    const goToRegisterLink = document.querySelector('#login a');
+    if (goToRegisterLink) {
+        goToRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah tautan melakukan navigasi sebenarnya
+            showPage('register');
+        });
     }
 
-    setupAdminVisibility(pageId); // Panggil setupAdminVisibility dengan pageId
-  }
 
-   showPage('login'); // Tampilkan halaman login saat awal
+    // Formulir Peminjaman
+    const formPeminjaman = document.getElementById('form-peminjaman');
+    const token = localStorage.getItem('token');
+    console.log('Token dari localStorage:', token); // Tambahkan ini
 
-   
+    if (formPeminjaman) {
+        formPeminjaman.addEventListener('submit', async (e) => {
+            console.log('Event submit terpicu!');
+            e.preventDefault();
+            console.log('Formulir peminjaman di-submit!');
 
-   // Fungsi untuk Menampilkan/Menyembunyikan Bagian Admin
-   function setupAdminVisibility(pageId) {
-    const loggedInUserRole = localStorage.getItem('userRole');
-    const adminControlButtons = document.querySelectorAll('.admin-button');
-    const manajemenBarangSection = document.getElementById('admin');
+            const namaLengkap = document.getElementById('namaLengkap').value;
+            const nim = document.getElementById('nim').value;
+            const namaBarang = document.getElementById('namaBarang').value;
+            const tanggalPinjam = document.getElementById('tanggalPinjam').value;
+            const tanggalKembali = document.getElementById('tanggalKembali').value;
+            const keperluan = document.getElementById('keperluan').value;
 
-    if (loggedInUserRole === 'admin' && pageId === 'daftar') {
-      adminControlButtons.forEach(button => button.style.display = 'block');
-      if (manajemenBarangSection) {
-        manajemenBarangSection.classList.remove('hidden');
-      }
-      fetchDaftarBarangAdmin(); // Muat data barang untuk admin
-    } else {
-      adminControlButtons.forEach(button => button.style.display = 'none');
-      if (manajemenBarangSection) {
-        manajemenBarangSection.classList.add('hidden');
-      }
+            console.log('namaLengkap:', namaLengkap);
+            console.log('nim:', nim);
+            console.log('namaBarang:', namaBarang);
+            console.log('tanggalPinjam:', tanggalPinjam);
+            console.log('tanggalKembali:', tanggalKembali);
+            console.log('keperluan:', keperluan);
+
+            // Validasi Client-Side
+            if (!namaLengkap || !nim || !namaBarang || !tanggalPinjam || !tanggalKembali || !keperluan) {
+                alert('Semua field harus diisi!');
+                return; // Hentikan proses jika ada field yang kosong
+            }
+
+            const data = {
+                namaLengkap: namaLengkap,
+                nim: nim,
+                namaBarang: namaBarang,
+                tanggalPinjam: tanggalPinjam,
+                tanggalKembali: tanggalKembali,
+                keperluan: keperluan,
+            };
+
+            // console.log('Sebelum fetch...');
+
+            try {
+                const response = await fetch('http://localhost:5000/peminjaman', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // 'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                console.log('Hasil dari server:', result);
+
+                alert('Peminjaman berhasil diajukan!');
+                formPeminjaman.reset();
+                showPage('home');
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mengajukan peminjaman.');
+            }
+        });
     }
-  }
 
-  setupAdminVisibility('login'); // Panggil saat halaman dimuat
+    // Login
+    const loginForm = document.querySelector('#login form');
 
-   // Event Listener untuk Tombol Navigasi
-   const navButtons = document.querySelectorAll('.nav-button');
-  navButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const pageId = button.dataset.page;
-      showPage(pageId);
-    });
-  });
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-  
- // Formulir Peminjaman
-const formPeminjaman = document.getElementById('form-peminjaman');
+            const email = loginForm.querySelector('input[placeholder="Email"]').value;
+            const password = loginForm.querySelector('input[placeholder="Password"]').value;
 
-if (formPeminjaman) {
- formPeminjaman.addEventListener('submit', async (e) => {
-  console.log('Event submit terpicu!');
-  e.preventDefault();
-  console.log('Formulir peminjaman di-submit!');
+            const data = { email, password };
 
-  const namaLengkap = document.getElementById('namaLengkap').value; 
-  const nim = document.getElementById('nim').value;
-  const namaBarang = document.getElementById('namaBarang').value;
-  const tanggalPinjam = document.getElementById('tanggalPinjam').value;
-  const tanggalKembali = document.getElementById('tanggalKembali').value;
-  const keperluan = document.getElementById('keperluan').value;
+            // console.log('CLIENT: Data login:', { email, password });
 
-console.log('namaLengkap:', namaLengkap);
-console.log('nim:', nim);
-console.log('namaBarang:', namaBarang);
-console.log('tanggalPinjam:', tanggalPinjam);
-console.log('tanggalKembali:', tanggalKembali);
-console.log('keperluan:', keperluan);
+            try {
+                const response = await fetch('http://localhost:5000/user/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
 
-  // Validasi Client-Side
-  if (!namaLengkap || !nim || !namaBarang || !tanggalPinjam || !tanggalKembali || !keperluan) {
-   alert('Semua field harus diisi!');
-   return; // Hentikan proses jika ada field yang kosong
-  }
+                const result = await response.json();
 
-  const data = {
-   namaLengkap: namaLengkap,
-   nim: nim,
-   namaBarang: namaBarang,
-   tanggalPinjam: tanggalPinjam,
-   tanggalKembali: tanggalKembali,
-   keperluan: keperluan,
-  };
+                if (response.ok) {
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('userRole', result.role);
+                    showPage('home');
+                    setupAdminVisibility('home'); // Tampilkan halaman home setelah login
+                } else {
+                    alert(`Login gagal: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat login.');
+            }
+        });
+    }
 
-  console.log('Sebelum fetch...');
+// Register
+    const registerForm = document.querySelector('#register-form');
 
-try {
-  const response = await fetch('http://localhost:5000/peminjaman', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-  if (!response.ok) {
-    throw new Error(`HTTP error! Status: ${response.status}`);
-  }
+            const email = registerForm.querySelector('input[placeholder="Email"]').value;
+            const password = registerForm.querySelector('input[placeholder="Password"]').value;
+            const confirmPassword = registerForm.querySelector('input[placeholder="Konfirmasi Password"]').value;
 
-  const result = await response.json();
-  console.log('Hasil dari server:', result);
+            if (password !== confirmPassword) {
+                alert('Password dan Konfirmasi Password tidak cocok.');
+                return;
+            }
 
-  alert('Peminjaman berhasil diajukan!');
-  formPeminjaman.reset();
-  showPage('home');
+            const data = { email, password };
 
-} catch (error) {
-  console.error('Error:', error);
-  alert('Terjadi kesalahan saat mengajukan peminjaman.');
-} 
+            try {
+                const response = await fetch('http://localhost:5000/user/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Pendaftaran berhasil!');
+                    registerForm.reset();
+                    showPage('home'); // Tambahkan baris ini
+                } else {
+                    alert(`Pendaftaran gagal: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mendaftar.');
+            }
+        });
+    }
+
+    // Logout
+    const logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userRole');
+            showPage('login');
+        });
+    }
+
+    // Fetch Daftar Barang (Umum)
+    const daftarTableBody = document.querySelector('#daftar table tbody');
+
+    async function fetchDaftarBarang() {
+        try {
+            const response = await fetch('http://localhost:5000/barang');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            daftarTableBody.innerHTML = '';
+
+            data.forEach((barang, index) => {
+                const row = document.createElement('tr');
+                row.classList.add('border-t');
+                row.innerHTML = `
+                    <td class="px-4 py-2">${index + 1}</td>
+                    <td class="px-4 py-2">${barang.namaBarang}</td>
+                    <td class="px-4 py-2">${barang.jumlah}</td>
+                `;
+                daftarTableBody.appendChild(row);
+            });
+
+        } catch (error) {
+            console.error('Gagal mengambil data barang:', error);
+            daftarTableBody.innerHTML = '<tr><td colspan="4" class="text-center">Gagal memuat data barang.</td></tr>';
+        }
+    }
+
+    fetchDaftarBarang();
+
+    // Fetch Daftar Barang (Admin)
+    async function fetchDaftarBarangAdmin() {
+        try {
+            const response = await fetch('http://localhost:5000/barang', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const daftarTableBody = document.querySelector('#daftar-barang-admin tbody');
+            if (daftarTableBody) {
+                daftarTableBody.innerHTML = '';
+
+                data.forEach(barang => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="py-2 px-4 border-b">${barang.namaBarang}</td>
+                        <td class="py-2 px-4 border-b">${barang.jumlah}</td>
+                        <td class="py-2 px-4 border-b">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Edit</button>
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Hapus</button>
+                        </td>
+                    `;
+                    daftarTableBody.appendChild(row);
+                });
+            }
+
+        } catch (error) {
+            console.error('Gagal mengambil data barang:', error);
+            const daftarTableBody = document.querySelector('#daftar-barang-admin tbody');
+            if (daftarTableBody) {
+                daftarTableBody.innerHTML = '<tr><td colspan="4" class="text-center">Gagal memuat data barang.</td></tr>';
+            }
+        }
+    }
+    // Form Tambah Admin
+    const formCreateAdmin = document.getElementById('form-create-admin');
+    const adminUserMessage = document.getElementById('admin-user-message');
+
+    if (formCreateAdmin) {
+        formCreateAdmin.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = formCreateAdmin.querySelector('input[name="email"]').value;
+            const password = formCreateAdmin.querySelector('input[name="password"]').value;
+            const token = localStorage.getItem('token');
+
+            try {
+                const response = await fetch('http://localhost:5000/user/admin/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    adminUserMessage.textContent = 'Admin berhasil dibuat!';
+                    adminUserMessage.className = 'mt-4 text-sm text-green-500';
+                    formCreateAdmin.reset();
+                } else {
+                    adminUserMessage.textContent = `Gagal membuat admin: ${result.message}`;
+                    adminUserMessage.className = 'mt-4 text-sm text-red-500';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                adminUserMessage.textContent = 'Terjadi kesalahan saat membuat admin.';
+                adminUserMessage.className = 'mt-4 text-sm text-red-500';
+            }
+        });
+    }
 });
-}
-
-// Login
-   const loginForm = document.querySelector('#login form');
-
-   if (loginForm) {
-     loginForm.addEventListener('submit', async (e) => {
-       e.preventDefault();
-
-       const email = loginForm.querySelector('input[placeholder="Email"]').value;
-       const password = loginForm.querySelector('input[placeholder="Password"]').value;
-
-       const data = { email, password };
-
-       try {
-         const response = await fetch('http://localhost:5000/user/login', {
-           method: 'POST',
-           headers: {
-             'Content-Type': 'application/json',
-           },
-           body: JSON.stringify(data),
-         });
-
-         const result = await response.json();
-
-         if (response.ok) {
-           localStorage.setItem('token', result.token);
-           localStorage.setItem('userRole', result.role);
-           showPage('home');
-           setupAdminVisibility('home'); // Tampilkan halaman home setelah login
-         } else {
-           alert(`Login gagal: ${result.message}`);
-         }
-       } catch (error) {
-         console.error('Error:', error);
-         alert('Terjadi kesalahan saat login.');
-       }
-     });
-   }
-
-   // Register
-   const registerForm = document.querySelector('#register-form');
-
-   if (registerForm) {
-     registerForm.addEventListener('submit', async (e) => {
-       e.preventDefault();
-
-       const email = registerForm.querySelector('input[placeholder="Email"]').value;
-       const password = registerForm.querySelector('input[placeholder="Password"]').value;
-       const confirmPassword = registerForm.querySelector('input[placeholder="Konfirmasi Password"]').value;
-
-       if (password !== confirmPassword) {
-         alert('Password dan Konfirmasi Password tidak cocok.');
-         return;
-       }
-
-       const data = { email, password };
-
-       try {
-         const response = await fetch('http://localhost:5000/user/register', {
-           method: 'POST',
-           headers: {
-             'Content-Type': 'application/json',
-           },
-           body: JSON.stringify(data),
-         });
-
-         const result = await response.json();
-
-         if (response.ok) {
-           alert('Pendaftaran berhasil!');
-           registerForm.reset();
-           showPage('login');
-         } else {
-           alert(`Pendaftaran gagal: ${result.message}`);
-         }
-       } catch (error) {
-         console.error('Error:', error);
-         alert('Terjadi kesalahan saat mendaftar.');
-       }
-     });
-   }
-
-   // Logout
-   const logoutButton = document.getElementById('logout-button');
-   if (logoutButton) {
-     logoutButton.addEventListener('click', () => {
-       localStorage.removeItem('token');
-       localStorage.removeItem('userRole');
-       showPage('login');
-     });
-   }
-
-   // Fetch Daftar Barang (Umum)
-   const daftarTableBody = document.querySelector('#daftar table tbody');
-
-   async function fetchDaftarBarang() {
-     try {
-       const response = await fetch('http://localhost:5000/barang');
-
-       if (!response.ok) {
-         throw new Error(`HTTP error! Status: ${response.status}`);
-       }
-
-       const data = await response.json();
-
-       daftarTableBody.innerHTML = '';
-
-       data.forEach((barang, index) => {
-         const row = document.createElement('tr');
-         row.classList.add('border-t');
-         row.innerHTML = `
-           <td class="px-4 py-2"><span class="math-inline">\{index \+ 1\}</td\>
-<td class\="px\-4 py\-2"\></span>{barang.namaBarang}</td>
-           <td class="px-4 py-2"><span class="math-inline">\{barang\.jumlah\}</td\>
-<td class\="px\-4 py\-2"\></span>{barang.kondisi}</td>
-         `;
-         daftarTableBody.appendChild(row);
-       });
-
-     } catch (error) {
-       console.error('Gagal mengambil data barang:', error);
-       daftarTableBody.innerHTML = '<tr><td colspan="4" class="text-center">Gagal memuat data barang.</td></tr>';
-     }
-   }
-
-   fetchDaftarBarang();
-
-   // Fetch Daftar Barang (Admin)
-   async function fetchDaftarBarangAdmin() {
-     try {
-       const response = await fetch('http://localhost:5000/barang', {
-         headers: {
-           'Authorization': `Bearer ${localStorage.getItem('token')}`
-         }
-       });
-       const data = await response.json();
-
-       if (!response.ok) {
-         throw new Error(`HTTP error! Status: ${response.status}`);
-       }
-
-       const daftarTableBody = document.querySelector('#daftar-barang-admin tbody');
-       if (daftarTableBody) {
-         daftarTableBody.innerHTML = '';
-
-         data.forEach(barang => {
-           const row = document.createElement('tr');
-           row.innerHTML = `
-             <td class="py-2 px-4 border-b"><span class="math-inline">\{barang\.namaBarang\}</td\>
-<td class\="py\-2 px\-4 border\-b"\></span>{barang.jumlah}</td>
-             <td class="py-2 px-4 border-b">${barang.kondisi}</td>
-             <td class="py-2 px-4 border-b">
-               <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Edit</button>
-               <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Hapus</button>
-             </td>
-           `;
-           daftarTableBody.appendChild(row);
-         });
-       }
-
-     } catch (error) {
-       console.error('Gagal mengambil data barang:', error);
-       const daftarTableBody = document.querySelector('#daftar-barang-admin tbody');
-       if (daftarTableBody) {
-         daftarTableBody.innerHTML = '<tr><td colspan="4" class="text-center">Gagal memuat data barang.</td></tr>';
-       }
-     }
-   }
-
-   // Form Tambah Admin
-   const formCreateAdmin = document.getElementById('form-create-admin');
-   const adminUserMessage = document.getElementById('admin-user-message');
-
-   if (formCreateAdmin) {
-     formCreateAdmin.addEventListener('submit', async (e) => {
-       e.preventDefault();
-
-       const email = formCreateAdmin.querySelector('input[name="email"]').value;
-       const password = formCreateAdmin.querySelector('input[name="password"]').value;
-       const token = localStorage.getItem('token');
-
-       try {
-         const response = await fetch('http://localhost:5000/user/admin/users', {
-           method: 'POST',
-           headers: {
-             'Content-Type': 'application/json',
-             'Authorization': `Bearer ${token}`,
-           },
-           body: JSON.stringify({ email, password }),
-         });
-
-         const result = await response.json();
-
-         if (response.ok) {
-           adminUserMessage.textContent = 'Admin berhasil dibuat!';
-           adminUserMessage.className = 'mt-4 text-sm text-green-500';
-           formCreateAdmin.reset();
-         } else {
-           adminUserMessage.textContent = `Gagal membuat admin: ${result.message}`;
-           adminUserMessage.className = 'mt-4 text-sm text-red-500';
-         }
-       } catch (error) {
-         console.error('Error:', error);
-         adminUserMessage.textContent = 'Terjadi kesalahan saat membuat admin.';
-         adminUserMessage.className = 'mt-4 text-sm text-red-500';
-       }
-     });
-   }
- });
-
 </script>
-
 </body>
 </html>

@@ -1,4 +1,4 @@
-const Peminjaman = require('C:/Users/Lenovo/Downloads/peminjaman barang/routes/peminjaman.js');
+const Peminjaman = require('../models/peminjaman');
 
 // Mendapatkan semua peminjaman
 const getAllPeminjaman = async (req, res) => {
@@ -12,21 +12,34 @@ const getAllPeminjaman = async (req, res) => {
 
 // Membuat peminjaman baru
 const createPeminjaman = async (req, res) => {
-  const peminjaman = new Peminjaman({
-    namaLengkap: req.body.namaLengkap,
-    nim: req.body.nim,
-    namaBarang: req.body.namaBarang,
-    tanggalPinjam: req.body.tanggalPinjam,
-    tanggalKembali: req.body.tanggalKembali,
-    keperluan: req.body.keperluan,
-  });
+    console.log('createPeminjaman: Data diterima dari frontend:', req.body);
 
-  try {
-    const newPeminjaman = await peminjaman.save();
-    res.status(201).json(newPeminjaman);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
+    const peminjaman = new Peminjaman({
+        namaLengkap: req.body.namaLengkap,
+        nim: req.body.nim,
+        namaBarang: req.body.namaBarang,
+        tanggalPinjam: req.body.tanggalPinjam,
+        tanggalKembali: req.body.tanggalKembali,
+        keperluan: req.body.keperluan,
+    });
+
+    console.log('createPeminjaman: Data yang akan disimpan:', peminjaman);
+
+    try {
+        console.log('createPeminjaman: Sebelum peminjaman.save()');
+        const newPeminjaman = await peminjaman.save();
+        console.log('createPeminjaman: Data berhasil disimpan:', newPeminjaman);
+        console.log('createPeminjaman: Sebelum res.status(201).json()');
+        res.status(201).json(newPeminjaman);
+        console.log('createPeminjaman: Setelah res.status(201).json()');
+    } catch (error) {
+        console.error('createPeminjaman: Error saat menyimpan data:', error);
+        console.log('createPeminjaman: Sebelum res.status(400).json()');
+        res.status(400).json({ message: error.message });
+        console.log('createPeminjaman: Setelah res.status(400).json()');
+    }
+
+    console.log('createPeminjaman: Fungsi createPeminjaman selesai');
 };
 
 // Mendapatkan peminjaman berdasarkan ID

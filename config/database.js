@@ -6,6 +6,7 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+    console.log('Mongoose connection state:', mongoose.connection.readyState); // <-- Di sini
     console.log('Terhubung ke MongoDB');
   } catch (error) {
     console.error('Gagal terhubung ke MongoDB:', error.message);
